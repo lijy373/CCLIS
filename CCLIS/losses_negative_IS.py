@@ -122,7 +122,7 @@ class ISSupConLoss(nn.Module):
         if score_mask is not None:
             # print('score_mask', score_mask)
             label_mask = torch.tensor([score_mask[item] for item in labels.tolist()]).to(device)
-            score_scale_mask = torch.eq(all_labels, label_mask).float().to(device)  # 限制scale哪一部分
+            score_scale_mask = torch.eq(all_labels, label_mask).float().to(device)  
         else:
             score_scale_mask = torch.ones(len(all_labels), len(labels)).to(device)
 
